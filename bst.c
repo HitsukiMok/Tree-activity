@@ -209,6 +209,9 @@ int main(void) {
 
         switch (choice) {
             case 1:
+                if (isEmpty(root)) {
+                    printf("The BST is empty \n");
+                }
                 printf("Enter Your Number: ");
                 scanf("%d", &val);
                 if (searchNode(root, val) != NULL) {
@@ -220,100 +223,140 @@ int main(void) {
                 break;
 
             case 2:
-                printf("What Number Would You Like to Know If It Exist in the Tree: ");
-                scanf("%d", &val);
-                if (searchNode(root, val) != NULL) {
-                    printf("It Exist Inside the Tree!\n");
+                if (isEmpty(root)) {
+                    printf("The BST is empty \n");
                 } else {
-                    printf("It Doesn't Exist Inside the Tree!\n");
+                    printf("What Number Would You Like to Know If It Exist in the Tree: ");
+                    scanf("%d", &val);
+                    if (searchNode(root, val) != NULL) {
+                        printf("It Exist Inside the Tree!\n");
+                    } else {
+                        printf("It Doesn't Exist Inside the Tree!\n");
+                    }
                 }
                 break;
 
             case 3:
-                printf("What Number Would You Like to Delete: ");
-                scanf("%d", &val);
-                if (searchNode(root, val) != NULL) {
-                    root = deleteNode(root, val);
-                    printf("It Is Successfully Removed!\nThis Is The Current Tree!\n");
-                    printInOrder(root);
-                    printf("\n");
+                if (isEmpty(root)) {
+                    printf("The BST is empty \n");
                 } else {
-                    printf("It Doesn't Even Exist!\n");
+                    printf("What Number Would You Like to Delete: ");
+                    scanf("%d", &val);
+                    if (searchNode(root, val) != NULL) {
+                        root = deleteNode(root, val);
+                        printf("It Is Successfully Removed!\nThis Is The Current Tree!\n");
+                        printInOrder(root);
+                        printf("\n");
+                    } else {
+                        printf("It Doesn't Even Exist!\n");
+                    }
                 }
                 break;
 
             case 4:
-                printf("This Is The In Order Traversal Of The Tree!\n");
-                printInOrder(root);
-                printf("\n");
+                if (isEmpty(root)) {
+                    printf("The BST is empty \n");
+                } else {
+                    printf("This Is The In Order Traversal Of The Tree!\n");
+                    printInOrder(root);
+                    printf("\n");
+                }
                 break;
 
             case 5:
-                printf("This Is The Pre Order Traversal Of The Tree!\n");
-                printPreOrder(root);
-                printf("\n");
+                if (isEmpty(root)) {
+                    printf("The BST is empty \n");
+                } else {
+                    printf("This Is The Pre Order Traversal Of The Tree!\n");
+                    printPreOrder(root);
+                    printf("\n");
+                }
                 break;
 
             case 6:
-                printf("This Is The Post Order Traversal Of The Tree!\n");
-                printPostOrder(root);
-                printf("\n");
+                if (isEmpty(root)) {
+                    printf("The BST is empty \n");
+                } else {
+                    printf("This Is The Post Order Traversal Of The Tree!\n");
+                    printPostOrder(root);
+                    printf("\n");
+                }
                 break;
 
             case 7:
-                minNode = finMin(root);
-                if (minNode != NULL) {
-                    printf("This Is The Minimum Value Inside The Tree: %d\n", minNode->data);
+                if (isEmpty(root)) {
+                    printf("The BST is empty \n");
                 } else {
-                    printf("The Tree Is Empty!\n");
+                    minNode = finMin(root);
+                    printf("This Is The Minimum Value Inside The Tree: %d\n", minNode->data);
                 }
                 break;
 
             case 8:
-                maxNode = finMax(root);
-                if (maxNode != NULL) {
-                    printf("This Is The Maximum Value Inside The Tree: %d\n", maxNode->data);
+                if (isEmpty(root)) {
+                    printf("The BST is empty \n");
                 } else {
-                    printf("The Tree Is Empty!\n");
+                    maxNode = finMax(root);
+                    printf("This Is The Maximum Value Inside The Tree: %d\n", maxNode->data);
                 }
                 printf("\n");
                 break;
 
             case 9:
-                printf("The Total Nodes Present In The Tree is: %d\n", countNodes(root));
+                if (isEmpty(root)) {
+                    printf("The BST is empty \n");
+                } else {
+                    printf("The Total Nodes Present In The Tree is: %d\n", countNodes(root));
+                }
                 break;
 
             case 10:
-                printf("The Total Leaf Nodes Present In the Tree is: %d\n", countLeafNodes(root));
+                if (isEmpty(root)) {
+                    printf("The BST is empty \n");
+                } else {
+                    printf("The Total Leaf Nodes Present In the Tree is: %d\n", countLeafNodes(root));
+                }
                 break;
 
             case 11:
-                printf("The Total Height Of The Tree is : %d\n", treeHeight(root));
+                if (isEmpty(root)) {
+                    printf("The BST is empty \n");
+                } else {
+                    printf("The Total Height Of The Tree is : %d\n", treeHeight(root));
+                }
                 break;
 
             case 12:
-                printf("The Total Nodes With Exactly One Child is: %d\n", countOneChildNodes(root));
+                if (isEmpty(root)) {
+                    printf("The BST is empty \n");
+                } else {
+                    printf("The Total Nodes With Exactly One Child is: %d\n", countOneChildNodes(root));
+                }
                 break;
 
             case 13:
                 if (isEmpty(root)) {
-                    printf("The Tree Is Empty!\n");
+                    printf("The BST is empty \n");
                 } else {
                     printf("The Tree Is Not Empty!\n");
                 }
                 break;
 
             case 14:
-                printf("Enter the Node Value to Find its Parent: ");
-                scanf("%d", &val);
-                if (searchNode(root, val) == NULL) {
-                    printf("It Doesn't Exist Inside the Tree!\n");
-                } else if (root->data == val) {
-                    printf("This Node is the Root and Has No Parent!\n");
+                if (isEmpty(root)) {
+                    printf("The BST is empty \n");
                 } else {
-                    parent = findParent(root, val);
-                    if (parent != NULL) {
-                        printf("The Parent of %d is: %d\n", val, parent->data);
+                    printf("Enter the Node Value to Find its Parent: ");
+                    scanf("%d", &val);
+                    if (searchNode(root, val) == NULL) {
+                        printf("It Doesn't Exist Inside the Tree!\n");
+                    } else if (root->data == val) {
+                        printf("This Node is the Root and Has No Parent!\n");
+                    } else {
+                        parent = findParent(root, val);
+                        if (parent != NULL) {
+                            printf("The Parent of %d is: %d\n", val, parent->data);
+                        }
                     }
                 }
                 break;
